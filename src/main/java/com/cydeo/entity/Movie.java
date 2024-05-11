@@ -2,15 +2,13 @@ package com.cydeo.entity;
 
 import com.cydeo.enums.MovieState;
 import com.cydeo.enums.MovieType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -28,5 +26,9 @@ public class Movie extends BaseEntity{
     private Integer duration;
     @Column(columnDefinition = "text")
     private String summary;
+
+    @ManyToMany
+    private List<Genre> genres;
+
 
 }
