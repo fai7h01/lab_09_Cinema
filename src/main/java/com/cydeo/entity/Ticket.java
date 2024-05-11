@@ -12,12 +12,14 @@ import java.time.LocalDateTime;
 @Entity
 @Data
 @NoArgsConstructor
-public class MovieCinema extends BaseEntity{
+public class Ticket extends BaseEntity{
 
     @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime dateTime;
+    private Integer seatNumber;
+    private Integer rowNumber;
     @ManyToOne(fetch = FetchType.LAZY)
-    private Movie movie;
+    private MovieCinema movieCinema;
     @ManyToOne(fetch = FetchType.LAZY)
-    private Cinema cinema;
+    private User userAccount;
 }
